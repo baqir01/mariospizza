@@ -1,100 +1,297 @@
+/* Mario's Pizza – style.css
+   Übung 01: Einbinden, Selektoren, Farben, Schrift */
+
+/* Farben: Rot-Weiß der Markise, Grün der italienischen Flagge, Creme für den Hintergrund */
 body {
-    margin: 0;
-    background-color: rgb(246, 250, 253);
-    color: #2e7f32;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #2b2b2b;
+    background-color: #fff6ec;
 }
 
 h1, h2, h3 {
-    color: red;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #c62828;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-style: italic;
+    color: #2e7d32;
+}
+
+a {
+    color: #c62828;
+}
+
+strong {
+    color: #2e7d32;
+}
+
+/* Übung 02: Box-Modell, Abstände, Karten, Bilder, Listen, Links */
+
+body {
+    margin: 0;
+    line-height: 1.6;
 }
 
 header, main, footer {
-    max-width: 990px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-header p {
-    color: #4825e2;
+header {
     text-align: center;
     padding-top: 30px;
 }
 
-head {
-    color: #2e7f32;
-    
-}
-
 main section {
-    background-color: floralwhite;
-    padding: 20px;
-    margin: 2px 0;
-    border-start-end-radius: 12px;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    margin: 20px 0;
+    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 main h2 {
     margin-top: 0;
-    border-bottom: 2px solid;
+    border-bottom: 2px solid #c62828;
     padding-bottom: 6px;
 }
 
 img {
-    display: block;
     max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
+
+figure {
+    margin: 10px 0;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666666;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+dt {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+dd {
+    margin: 0 0 8px 0;
+}
+
+address {
+    font-style: normal;
+}
+
+a:hover {
+    color: #2e7d32;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666666;
+    padding: 20px;
+}
+
+/* Übung 03: Layout mit Flexbox und Grid */
+
+/* Navigation als rote Leiste über die ganze Breite */
 nav {
     background-color: #c62828;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
+    margin: 0 auto;
     padding: 0;
-    margin: 0;
+    max-width: 900px;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     gap: 10px;
 }
 
 nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 12px 20px;
     display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 nav a:hover {
     background-color: #2e7d32;
-}
-header img {
-   width: 100px;
-   border-radius: 50%;
+    color: #ffffff;
 }
 
+/* Kopfbereich: Logo und Name nebeneinander */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+/* Bildergalerie: Bilder nebeneinander, bei Platzmangel umbrechen */
 .galerie {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
-   
+    flex-wrap: wrap;
 }
-.galerie-fitures {
-    flex: 1 1 200px;
-    
 
+.galerie figure {
+    flex: 1 1 200px;
+    margin: 0;
 }
-.galerie-img{width:100%
+
+.galerie img {
+    width: 100%;
 }
+
+/* Öffnungszeiten als zwei Spalten (Grid) */
 dl {
     display: grid;
-    grid-template-columns:max-content 1fr;
-    gap:6px 20px;
+    grid-template-columns: max-content 1fr;
+    gap: 6px 20px;
 }
+
 dd {
     margin: 0;
+}
+
+/* Übung 04: Handy-Ansicht (Responsive Design) */
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav a {
+        text-align: center;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    main section {
+        padding: 15px;
+    }
+
+    dl {
+        grid-template-columns: 1fr;
+    }
+
+    .galerie {
+        flex-direction: column;
+    }
+}
+
+
+/* ============================================================
+   Übung 05: Variablen (Custom Properties)
+   Alle Farben und Maße stehen jetzt an EINER Stelle.
+   ============================================================ */
+
+:root {
+    --rot: #c62828;
+    --rot-dunkel: #8e1f1f;
+    --gruen: #2e7d32;
+    --creme: #fff6ec;
+    --text: #2b2b2b;
+    --weiss: #ffffff;
+    --abstand: 20px;
+    --radius: 8px;
+    --schatten: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    color: var(--text);
+    background-color: var(--creme);
+}
+
+h1, h2, h3 {
+    color: var(--rot);
+}
+
+a {
+    color: var(--rot);
+}
+
+strong {
+    color: var(--gruen);
+}
+
+nav {
+    background-color: var(--rot);
+}
+
+main section {
+    background-color: var(--weiss);
+    border-radius: var(--radius);
+    box-shadow: var(--schatten);
+    padding: var(--abstand);
+}
+
+footer {
+    background-color: var(--text);
+}
+
+
+/* ============================================================
+   Übung 06: Übergänge (transition) und Verformungen (transform)
+   ============================================================ */
+
+nav a {
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--rot-dunkel);
+}
+
+main section {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+main section:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px);
+}
+
+.galerie img {
+    transition: transform 0.4s ease;
+}
+
+.galerie img:hover {
+    transform: scale(1.05) rotate(-1deg);
 }
