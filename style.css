@@ -148,6 +148,7 @@ header {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    animation: einblenden 1s ease-out;
 }
 
 header img {
@@ -180,6 +181,25 @@ dl {
 
 dd {
     margin: 0;
+}
+/* Badge für neue Pizzen  funghi */
+figure {
+    position: relative;
+}
+/* Badge für neue Pizzen  funghi*/
+.badge{
+    background-color: #2e7d32;
+    color: #ffffff;
+    border-radius: 5px;
+    animation: pulsieren 1.5s ease-in-out infinite;
+    display:block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    padding:5px;
+    font-weight:bold;
+
+    
 }
 
 /* Übung 04: Handy-Ansicht (Responsive Design) */
@@ -295,3 +315,49 @@ main section:hover {
 .galerie img:hover {
     transform: scale(1.05) rotate(-1deg);
 }
+main section {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+main section:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px);
+}
+.galerie img {
+    transition: transform 0.4s ease;
+}
+.galerie img:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+/* ============================================================
+   Übung 07: Animationen (keyframes)
+   ============================================================ */  
+@keyframes einblenden {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+@keyframes pulsieren {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
