@@ -116,6 +116,9 @@ footer {
 /* Navigation als rote Leiste über die ganze Breite */
 nav {
     background-color: #c62828;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 nav ul {
