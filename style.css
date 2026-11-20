@@ -191,7 +191,7 @@ figure {
 }
 /* Badge für neue Pizzen  funghi*/
 .badge{
-    background-color: #2e7d32;
+    background-color: var(--gruen);
     color: #ffffff;
     border-radius: 5px;
     animation: pulsieren 1.5s ease-in-out infinite;
@@ -201,8 +201,27 @@ figure {
     left: -5px;
     padding:5px;
     font-weight:bold;
+    font-size:0.8rem;
+    z-index: 2;
 
     
+}
+.nach-oben {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color:var(--rot);
+    color: var(--weiss);
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: var(--schatten);
+    z-index:200;
+}
+.nach-oben:hover {
+    background-color: var(--rot-dunkel);
+    transform: translateY(-2px);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Übung 04: Handy-Ansicht (Responsive Design) */
@@ -361,6 +380,44 @@ main section:hover {
         animation: none !important;
         transition: none !important;
     }
+
+    /*============================================================
+    ------ubung 09: Barrierefreiheit (Accessibility)-----
+    ============================================================*/
+}
+@media (max-width: 600px) {
+    nav {
+        position: sticky;
+    }
+
+    .nach-oben {
+        display: none;
+    }
 }
 
+@media print {
+    nav,
+    .nach-oben,
+    .galerie,
+    footer {
+        display: none;
+    }
+    /*============================================================
+    ------ubung 9 aufgabe 02 Drucken (Print Styles)----- 
+    ============================================================*/
+    body {
+        background-color: var(#ffffff);
+        color: var(#000000);
+    }
+    h1, h2, h3 {
+        color: var(#000000);
+    } 
+    main section {
+        box-shadow: none;
+        border: none;
+        padding: 10px;
+        border:1px solid #000000;
+        break-inside: avoid;
+    }
 
+} 
